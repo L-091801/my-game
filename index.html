@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>上班摸鱼农场 · 挂机 + 多人聊天</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- 顶栏 -->
+    <header class="topbar">
+      <h1>🏡 上班摸鱼农场</h1>
+      <div class="stats">
+        <span class="stat">💰 <b id="h-gold">0</b></span>
+        <span class="stat" id="h-level">⭐Lv.1</span>
+        <span class="stat" id="h-profession">未选择职业</span>
+        <span class="stat" id="h-mode">🏖️ 下班 ×1</span>
+        <span class="stat">🟢 <b id="h-online">0</b></span>
+        <button id="btn-reset" class="mini-btn" title="重置存档">🔄 重置</button>
+        <button id="btn-profile" class="player-card" title="个人资料">
+          <span id="p-avatar">🦊</span><span id="p-name">玩家</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 顶部系统公告横幅 -->
+    <div id="system-banner" class="hidden"></div>
+
+    <!-- 模式条 -->
+    <div id="mode-bar"></div>
+
+    <!-- 事件提示卡容器 -->
+    <div id="toast-area"></div>
+
+    <!-- 职业选择浮层 -->
+    <div id="profession-overlay" class="hidden"></div>
+
+    <!-- 个人资料弹窗 -->
+    <div id="profile-modal" class="hidden"></div>
+
+    <!-- 主布局 -->
+    <main class="layout">
+      <div class="sidebar">
+        <section class="window" data-win="farm">
+          <div class="window-header"><span>🌾 我的农场</span></div>
+          <div class="window-body" id="farm-body"></div>
+        </section>
+
+        <section class="window" data-win="chop">
+          <div class="window-header"><span>🪓 砍树场</span></div>
+          <div class="window-body" id="chop-body"></div>
+        </section>
+
+        <section class="window" data-win="mine">
+          <div class="window-header"><span>⛏️ 矿洞</span></div>
+          <div class="window-body" id="mine-body"></div>
+        </section>
+
+        <section class="window" data-win="shop">
+          <div class="window-header"><span>🛒 商店</span></div>
+          <div class="window-body" id="shop-body"></div>
+        </section>
+
+        <section class="window" data-win="dungeon">
+          <div class="window-header"><span>⚔️ 副本</span></div>
+          <div class="window-body" id="dungeon-body"></div>
+        </section>
+
+        <section class="window" data-win="home">
+          <div class="window-header"><span>🏠 家园</span></div>
+          <div class="window-body" id="home-body"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- 悬浮聊天球 + 面板 -->
+    <button id="chat-fab" title="聊天">💬</button>
+    <div id="chat-panel" class="hidden">
+      <div class="chat-tabs">
+        <button class="chat-tab active" data-tab="world">公屏</button>
+        <button class="chat-tab" data-tab="system">系统</button>
+        <button class="chat-tab" data-tab="whisper">私聊</button>
+        <button class="chat-tab" data-tab="npc">NPC</button>
+      </div>
+      <div id="chat-roster" class="hidden"></div>
+      <div class="chat-views">
+        <div class="chat-view active" data-view="world" id="view-world"></div>
+        <div class="chat-view" data-view="system" id="view-system"></div>
+        <div class="chat-view" data-view="whisper" id="view-whisper"></div>
+        <div class="chat-view" data-view="npc" id="view-npc"></div>
+      </div>
+      <div class="chat-input">
+        <input id="chat-input" maxlength="80" placeholder="说点什么…（回车发送）" />
+        <button id="chat-send">发送</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
